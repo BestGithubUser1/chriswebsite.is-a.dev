@@ -26,13 +26,6 @@ body {
     font-family: Arial, sans-serif;
 }
 
-.logo {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 30%;
-}
-
 .MainText {
     animation: flicker 1.5s infinite alternate;
     color: #fff;
