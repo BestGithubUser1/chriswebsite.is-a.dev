@@ -6,3 +6,19 @@ body {
     color: white;
     text-align: center;
 }
+
+.buttons {
+    text-align: center;
+}
+
+.home {
+    font-size: 30px;
+    background: none;
+    border: 2px solid #0fa;
+    color: #0fa;
+    font-family:Impact;
+}
+
+.home:active {
+    color: white;
+}
