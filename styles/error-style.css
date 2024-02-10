@@ -1,0 +1,14 @@
+body {
+    background-color: black;
+}
+
+.Error {
+    color: limegreen;
+    text-align: center;
+    text-shadow: 0 0 150px #0fa;
+    text-shadow: none;
+}
+
+.Text {
+    font-family: sans-serif;
+}
