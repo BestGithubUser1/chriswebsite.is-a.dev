@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Counter</title>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+</head>
+<body>
+    <script>
+        // Firebase configuration
+        var firebaseConfig = {
+            apiKey: "AIzaSyDRmpxaPd1_lTAhMCdQ_QP_3PIecsHHL5Y",
+            authDomain: "apicountproject.firebaseapp.com",
+            databaseURL: "https://apicountproject-default-rtdb.firebaseio.com",
+            projectId: "apicountproject",
+            storageBucket: "apicountproject.appspot.com",
+            messagingSenderId: "32813902089",
+            appId: "1:32813902089:web:42d6fdcb71996a8b234bd8"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+
+        // Reference to the counter value in the database
+        const counterRef = database.ref('counter');
+
+        // Increment the counter when the page is accessed (GET request)
+        async function incrementCounter() {
+            // Use Firebase transaction to increment the counter atomically
+            let newValue = await counterRef.transaction(currentValue => {
+                return (currentValue || 0) + 1;
+            });
+            
+            // Send the counter value as a JSON response
+            document.body.innerText = JSON.stringify({ count: newValue.snapshot.val() });
+        }
+
+        // Call incrementCounter when the page is accessed
+        incrementCounter();
+    </script>
+</body>
+</html>
